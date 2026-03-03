@@ -1,0 +1,22 @@
+---
+interface Props {
+  company: {
+    name: string;
+    websiteUrl: string;
+  };
+  name: string;
+  period: string;
+}
+
+const { company, name, period } = Astro.props;
+---
+
+<div class="flat-border-with-shadow flex flex-col gap-1 rounded-xl p-6">
+  <div class="font-medium">{name}</div>
+  <div class="text-sm">
+    <a href={company.websiteUrl} target="_blank">{company.name}</a>
+  </div>
+  <div class="text-sm text-olive-600 dark:text-olive-400">
+    {period}
+  </div>
+</div>

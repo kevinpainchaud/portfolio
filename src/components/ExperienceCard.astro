@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import LinkItem from "./LinkItem.astro";
+
+interface Props {
+  logoSrc: string;
+  description: string;
+  period: string;
+  subtitle: string;
+  title: string;
+  websiteUrl: string;
+}
+
+const { description, logoSrc, period, subtitle, title, websiteUrl } =
+  Astro.props;
+---
+
+<div class="flat-border-with-shadow flex flex-col gap-6 rounded-xl p-4 md:p-6">
+  <div class="flex flex-col gap-6 md:flex-row md:gap-4">
+    <div class="flex grow items-center gap-4">
+      <div
+        class="flat-border flex size-14 shrink-0 items-center justify-center rounded-lg md:size-20"
+      >
+        <Image
+          alt={`Logo ${title}`}
+          src={logoSrc}
+          class="size-10/12 rounded"
+          width={56}
+          height={56}
+        />
+      </div>
+      <div>
+        <div class="font-medium">{title}</div>
+        <div>{subtitle}</div>
+      </div>
+    </div>
+    <div class="text-sm text-olive-600 dark:text-olive-400">
+      {period}
+    </div>
+  </div>
+  <p class="text-sm text-olive-600 dark:text-olive-400">
+    {description}
+  </p>
+  <LinkItem href={websiteUrl} />
+</div>

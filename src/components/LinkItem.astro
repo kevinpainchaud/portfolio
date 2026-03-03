@@ -1,0 +1,16 @@
+---
+import LinkBold from "phosphor-astro/LinkBold.astro";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+const domain = new URL(href).hostname;
+---
+
+<div class="flex items-center gap-1 text-sm">
+  <LinkBold class="size-3 text-olive-600 dark:text-olive-400" />
+  <a href={href} target="_blank">{domain}</a>
+</div>

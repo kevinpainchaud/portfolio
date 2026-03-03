@@ -1,0 +1,155 @@
+---
+import ExperienceCard from "../components/ExperienceCard.astro";
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import ExperienceListItem from "../components/ExperienceListItem.astro";
+import EducationCard from "../components/EducationCard.astro";
+import SkillTag from "../components/SkillTag.astro";
+import StackCard from "../components/StackCard.astro";
+import HeroSection from "../components/HeroSection.astro";
+import HobbyCard from "../components/HobbyCard.astro";
+import { stackTechnologies } from "../data/stackTechnologies";
+import { stackTools } from "../data/stackTools";
+import { skills } from "../data/skills";
+import { education } from "../data/education";
+import { sideProjects } from "../data/sideProjects";
+import { agencyExperiences } from "../data/agencyExperiences";
+import { experiences } from "../data/experiences";
+import { SOCIAL_MEDIAS_LINKS } from "../constants/socialMediasLinks";
+import { hobbies } from "../data/hobbies";
+import { generalInformation } from "../data/generalInformation";
+---
+
+<Layout>
+  <div class="flex flex-col gap-12 md:gap-32">
+    <HeroSection />
+    <Section title="À propos">
+      <p>
+        {generalInformation.longDescription}
+      </p>
+    </Section>
+    <Section title="Expériences">
+      {
+        experiences.map(({ company, description, name, period }) => (
+          <ExperienceCard
+            description={description}
+            logoSrc={company.logoSrc}
+            period={period}
+            subtitle={company.name}
+            title={name}
+            websiteUrl={company.websiteUrl}
+          />
+        ))
+      }
+      <div class="flex flex-col gap-4">
+        <div>Mes premières expériences en agences :</div>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {
+            agencyExperiences.map(({ company, name, period }) => (
+              <ExperienceListItem
+                company={company}
+                name={name}
+                period={period}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </Section>
+    <Section title="Side project">
+      {
+        sideProjects.map(
+          ({ baseline, description, logoSrc, period, title, websiteUrl }) => (
+            <ExperienceCard
+              description={description}
+              logoSrc={logoSrc}
+              period={period}
+              subtitle={baseline}
+              title={title}
+              websiteUrl={websiteUrl}
+            />
+          ),
+        )
+      }
+    </Section>
+    <Section title="Formations">
+      {
+        education.map(({ name, period, university }) => (
+          <EducationCard name={name} period={period} university={university} />
+        ))
+      }
+    </Section>
+    <Section title="Compétences">
+      <div class="flex flex-wrap gap-4 md:gap-6">
+        {
+          skills.map(({ important, name }) => (
+            <SkillTag important={important}>{name}</SkillTag>
+          ))
+        }
+      </div>
+    </Section>
+    <Section title="Stack technique">
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-10">
+        {
+          stackTechnologies.map(
+            ({ description, logoSrc, name, websiteUrl }) => (
+              <StackCard
+                description={description}
+                logoSrc={logoSrc}
+                name={name}
+                websiteUrl={websiteUrl}
+              />
+            ),
+          )
+        }
+      </div>
+    </Section>
+    <Section title="Outils favoris">
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-10">
+        {
+          stackTools.map(({ description, logoSrc, name, websiteUrl }) => (
+            <StackCard
+              description={description}
+              logoSrc={logoSrc}
+              name={name}
+              websiteUrl={websiteUrl}
+            />
+          ))
+        }
+      </div>
+    </Section>
+    <Section title="Hobbies">
+      <div class="grid grid-cols-3 gap-4 md:gap-6">
+        {
+          hobbies.map(({ imageSrc, name }) => (
+            <HobbyCard imageSrc={imageSrc} title={name} />
+          ))
+        }
+      </div>
+    </Section>
+    <Section title="Contact">
+      <div>
+        <span>LinkedIn :</span>
+        <a
+          id="contact-section-contact-button"
+          href={SOCIAL_MEDIAS_LINKS.linkedIn}
+          target="_blank"
+        >
+          {SOCIAL_MEDIAS_LINKS.linkedIn}
+        </a>
+      </div>
+    </Section>
+  </div>
+</Layout>
+
+<script>
+  import { trackEvent } from "../utils/tracking";
+
+  const contactSectionContactButton = document.getElementById(
+    "contact-section-contact-button",
+  );
+
+  contactSectionContactButton?.addEventListener("click", () =>
+    trackEvent("click_contact_button"),
+  );
+</script>

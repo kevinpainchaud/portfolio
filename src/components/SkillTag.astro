@@ -1,0 +1,16 @@
+---
+interface Props {
+  important?: boolean;
+}
+
+const { important } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flat-border-with-shadow rounded-full px-4 py-1.5 md:px-6 md:py-3",
+    { "font-semibold": important },
+  ]}
+>
+  <slot />
+</div>

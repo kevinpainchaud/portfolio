@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import PaperPlaneTiltBold from "phosphor-astro/PaperPlaneTiltBold.astro";
+import Button from "./Button.astro";
+import { SOCIAL_MEDIAS_LINKS } from "../constants/socialMediasLinks";
+import { generalInformation } from "../data/generalInformation";
+---
+
+<div class="centered-container flex flex-col items-center gap-6">
+  <Image
+    alt="Kévin Painchaud"
+    class="glassy-border size-32 rounded-full"
+    src="/kevin-painchaud-profile-picture.webp"
+    loading="eager"
+    width={128}
+    height={128}
+  />
+  <h2 class="text-center text-xl md:text-2xl">
+    Hello ! Je suis <span class="text-sunset-500">Kévin Painchaud</span> 👋
+  </h2>
+  <h1
+    class="font-funnel-display text-center text-5xl leading-13 font-medium md:text-6xl md:leading-16"
+  >
+    Développeur front-end<br />basé à Laval
+  </h1>
+  <p class="max-w-lg text-center leading-7">
+    {generalInformation.description}
+  </p>
+  <Button
+    Icon={PaperPlaneTiltBold}
+    href={SOCIAL_MEDIAS_LINKS.linkedIn}
+    id="hero-section-contact-button"
+    target="_blank"
+    variant="primary">Me contacter</Button
+  >
+</div>
+
+<script>
+  import { trackEvent } from "../utils/tracking";
+
+  const contactButton = document.getElementById("hero-section-contact-button");
+
+  contactButton?.addEventListener("click", () =>
+    trackEvent("click_contact_button"),
+  );
+</script>

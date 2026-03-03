@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+import { getSecret } from "astro:env/server";
+import GitHubLogoBold from "phosphor-astro/GitHubLogoBold.astro";
+import LinkedInLogoBold from "phosphor-astro/LinkedInLogoBold.astro";
+import { SOCIAL_MEDIAS_LINKS } from "../constants/socialMediasLinks";
+import { generalInformation } from "../data/generalInformation";
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{generalInformation.title}</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={generalInformation.shortDescription} />
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      })();
+
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      window.localStorage.setItem("theme", theme);
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", () => {
+          const theme = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches
+            ? "dark"
+            : "light";
+
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          window.localStorage.setItem("theme", theme);
+        });
+    </script>
+  </head>
+  <body>
+    <header class="centered-container relative">
+      <nav class="flex justify-end pt-4 md:pt-6">
+        <ul class="flex gap-6">
+          <li>
+            <a
+              aria-label="GitHub"
+              href={SOCIAL_MEDIAS_LINKS.gitHub}
+              target="_blank"
+              title="GitHub"
+            >
+              <GitHubLogoBold class="size-6" />
+            </a>
+          </li>
+          <li>
+            <a
+              aria-label="LinkedIn"
+              href={SOCIAL_MEDIAS_LINKS.linkedIn}
+              target="_blank"
+              title="LinkedIn"
+            >
+              <LinkedInLogoBold class="size-6" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="relative py-12 md:pt-20 md:pb-32">
+      <slot />
+    </main>
+    <footer
+      class="relative pb-4 text-center text-olive-600 md:pb-6 dark:text-olive-400"
+    >
+      kevinpainchaud.fr © {new Date().getFullYear()}
+    </footer>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id={getSecret("UMAMI_WEBSITE_ID")}></script>
+  </body>
+</html>
