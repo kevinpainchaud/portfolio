@@ -11,7 +11,12 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ["phosphor-astro"],
+        external: [
+          "phosphor-astro/GitHubLogoBold.astro",
+          "phosphor-astro/LinkedInLogoBold.astro",
+          "phosphor-astro/LinkBold.astro",
+          "phosphor-astro/PaperPlaneTiltBold.astro",
+        ],
       },
     },
     plugins: [tailwindcss()],
