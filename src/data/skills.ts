@@ -1,7 +1,6 @@
-export const skills: {
-  important?: boolean;
-  name: string;
-}[] = [
+import type { Skill } from "../interfaces/skill";
+
+export const skills: Skill[] = [
   { important: true, name: "Développement front-end" },
   { important: true, name: "Intégration HTML/CSS" },
   { name: "Expérience utilisateur (UX)" },

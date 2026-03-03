@@ -1,12 +1,6 @@
-export const education: {
-  name: string;
-  period: string;
-  university: {
-    logoSrc: string;
-    name: string;
-    websiteUrl: string;
-  };
-}[] = [
+import type { EducationItem } from "../interfaces/educationItem";
+
+export const educationItems: EducationItem[] = [
   {
     name: "Licence Pro. Activité et Techniques de Communication",
     period: "2011/2012",

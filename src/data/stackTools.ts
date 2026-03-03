@@ -1,9 +1,6 @@
-export const stackTools: {
-  description: string;
-  logoSrc: string;
-  name: string;
-  websiteUrl: string;
-}[] = [
+import type { StackItem } from "../interfaces/stackItem";
+
+export const stackTools: StackItem[] = [
   {
     description: "Éditeur de code source extensible et puissant.",
     logoSrc: "/stack/tools/vscode-logo.svg",

@@ -1,16 +1,8 @@
 import dayjs from "../lib/dayjs";
+import type { Experience } from "../interfaces/experience";
 import { dates } from "./dates";
 
-export const experiences: {
-  company: {
-    logoSrc: string;
-    name: string;
-    websiteUrl: string;
-  };
-  description: string;
-  name: string;
-  period: string;
-}[] = [
+export const experiences: Experience[] = [
   {
     company: {
       name: "Leeto",

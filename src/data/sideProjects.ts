@@ -1,14 +1,8 @@
 import dayjs from "../lib/dayjs";
+import type { SideProject } from "../interfaces/sideProject";
 import { dates } from "./dates";
 
-export const sideProjects: {
-  baseline: string;
-  description: string;
-  logoSrc: string;
-  period: string;
-  title: string;
-  websiteUrl: string;
-}[] = [
+export const sideProjects: SideProject[] = [
   {
     baseline: "Planning poker online",
     description:

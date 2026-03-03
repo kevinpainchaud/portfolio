@@ -1,17 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import type { EducationItem } from "../interfaces/educationItem";
 
 interface Props {
-  name: string;
-  period: string;
-  university: {
-    logoSrc: string;
-    name: string;
-    websiteUrl: string;
-  };
+  educationItem: EducationItem;
 }
 
-const { name, period, university } = Astro.props;
+const { educationItem } = Astro.props;
 ---
 
 <div
@@ -21,18 +16,22 @@ const { name, period, university } = Astro.props;
     class="flat-border flex size-14 shrink-0 items-center justify-center rounded-lg md:size-20"
   >
     <Image
-      alt={`Logo ${university.name}`}
-      src={university.logoSrc}
+      alt={`Logo ${educationItem.university.name}`}
+      src={educationItem.university.logoSrc}
       class="size-10/12 rounded"
       width={80}
       height={80}
     />
   </div>
   <div class="flex flex-col gap-1">
-    <div class="font-medium">{name}</div>
+    <div class="font-medium">{educationItem.name}</div>
     <div>
-      <a href={university.websiteUrl} target="_blank">{university.name}</a>
+      <a href={educationItem.university.websiteUrl} target="_blank">
+        {educationItem.university.name}
+      </a>
     </div>
-    <div class="text-sm text-olive-600 dark:text-olive-400">{period}</div>
+    <div class="text-sm text-olive-600 dark:text-olive-400">
+      {educationItem.period}
+    </div>
   </div>
 </div>

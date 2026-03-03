@@ -1,15 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import LinkItem from "./LinkItem.astro";
+import type { StackItem } from "../interfaces/stackItem";
 
 interface Props {
-  description: string;
-  logoSrc: string;
-  name: string;
-  websiteUrl: string;
+  stackItem: StackItem;
 }
 
-const { description, logoSrc, name, websiteUrl } = Astro.props;
+const { stackItem } = Astro.props;
 ---
 
 <div class="flex flex-col gap-2">
@@ -17,16 +15,16 @@ const { description, logoSrc, name, websiteUrl } = Astro.props;
     class="flat-border-with-shadow dark:bg-forest-900/30 flex size-16 items-center justify-center rounded-full bg-white/30"
   >
     <Image
-      alt={`Logo ${name}`}
-      src={logoSrc}
+      alt={`Logo ${stackItem.name}`}
+      src={stackItem.logoSrc}
       class="size-10/12 rounded-full"
       width={64}
       height={64}
     />
   </div>
-  <div>{name}</div>
+  <div>{stackItem.name}</div>
   <p class="text-xs leading-6 text-olive-600 md:text-sm dark:text-olive-400">
-    {description}
+    {stackItem.description}
   </p>
-  <LinkItem href={websiteUrl} />
+  <LinkItem href={stackItem.websiteUrl} />
 </div>

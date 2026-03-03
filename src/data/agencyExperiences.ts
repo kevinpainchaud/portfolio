@@ -1,11 +1,6 @@
-export const agencyExperiences: {
-  company: {
-    name: string;
-    websiteUrl: string;
-  };
-  name: string;
-  period: string;
-}[] = [
+import type { AgencyExperience } from "../interfaces/agencyExperience";
+
+export const agencyExperiences: AgencyExperience[] = [
   {
     company: {
       name: "Concept Image",

@@ -11,7 +11,7 @@ import HobbyCard from "../components/HobbyCard.astro";
 import { stackTechnologies } from "../data/stackTechnologies";
 import { stackTools } from "../data/stackTools";
 import { skills } from "../data/skills";
-import { education } from "../data/education";
+import { educationItems } from "../data/educationItems";
 import { sideProjects } from "../data/sideProjects";
 import { agencyExperiences } from "../data/agencyExperiences";
 import { experiences } from "../data/experiences";
@@ -45,12 +45,8 @@ import { generalInformation } from "../data/generalInformation";
         <div>Mes premières expériences en agences :</div>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
           {
-            agencyExperiences.map(({ company, name, period }) => (
-              <ExperienceListItem
-                company={company}
-                name={name}
-                period={period}
-              />
+            agencyExperiences.map((agencyExperience) => (
+              <ExperienceListItem agencyExperience={agencyExperience} />
             ))
           }
         </div>
@@ -74,57 +70,33 @@ import { generalInformation } from "../data/generalInformation";
     </Section>
     <Section title="Formations">
       {
-        education.map(({ name, period, university }) => (
-          <EducationCard name={name} period={period} university={university} />
+        educationItems.map((educationItem) => (
+          <EducationCard educationItem={educationItem} />
         ))
       }
     </Section>
     <Section title="Compétences">
       <div class="flex flex-wrap gap-4 md:gap-6">
-        {
-          skills.map(({ important, name }) => (
-            <SkillTag important={important}>{name}</SkillTag>
-          ))
-        }
+        {skills.map((skill) => <SkillTag skill={skill} />)}
       </div>
     </Section>
     <Section title="Stack technique">
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-10">
         {
-          stackTechnologies.map(
-            ({ description, logoSrc, name, websiteUrl }) => (
-              <StackCard
-                description={description}
-                logoSrc={logoSrc}
-                name={name}
-                websiteUrl={websiteUrl}
-              />
-            ),
-          )
+          stackTechnologies.map((stackTechnology) => (
+            <StackCard stackItem={stackTechnology} />
+          ))
         }
       </div>
     </Section>
     <Section title="Outils favoris">
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-10">
-        {
-          stackTools.map(({ description, logoSrc, name, websiteUrl }) => (
-            <StackCard
-              description={description}
-              logoSrc={logoSrc}
-              name={name}
-              websiteUrl={websiteUrl}
-            />
-          ))
-        }
+        {stackTools.map((stackTool) => <StackCard stackItem={stackTool} />)}
       </div>
     </Section>
     <Section title="Hobbies">
       <div class="grid grid-cols-3 gap-4 md:gap-6">
-        {
-          hobbies.map(({ imageSrc, name }) => (
-            <HobbyCard imageSrc={imageSrc} title={name} />
-          ))
-        }
+        {hobbies.map((hobby) => <HobbyCard hobby={hobby} />)}
       </div>
     </Section>
     <Section title="Contact">

@@ -1,9 +1,6 @@
-export const stackTechnologies: {
-  description: string;
-  logoSrc: string;
-  name: string;
-  websiteUrl: string;
-}[] = [
+import type { StackItem } from "../interfaces/stackItem";
+
+export const stackTechnologies: StackItem[] = [
   {
     description: "Le langage de programmation incontournable du Web.",
     logoSrc: "/stack/technologies/javascript-logo.svg",

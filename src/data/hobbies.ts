@@ -1,7 +1,6 @@
-export const hobbies: {
-  imageSrc: string;
-  name: string;
-}[] = [
+import type { Hobby } from "../interfaces/hobby";
+
+export const hobbies: Hobby[] = [
   {
     imageSrc: "/hobbies/voyage-a-velo.png",
     name: "Cyclisme & voyage à vélo",
