@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&family=Funnel+Display:wght@300..800&display=swap");
 
 @import "tailwindcss";
+@import "@phosphor-icons/web/bold";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

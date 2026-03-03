@@ -1,8 +1,6 @@
 ---
 import "../styles/global.css";
 import { getSecret } from "astro:env/server";
-import GitHubLogoBold from "phosphor-astro/GitHubLogoBold.astro";
-import LinkedInLogoBold from "phosphor-astro/LinkedInLogoBold.astro";
 import { SOCIAL_MEDIAS_LINKS } from "../constants/socialMediasLinks";
 import { generalInformation } from "../data/generalInformation";
 ---
@@ -52,21 +50,23 @@ import { generalInformation } from "../data/generalInformation";
           <li>
             <a
               aria-label="GitHub"
+              class="hover:no-underline"
               href={SOCIAL_MEDIAS_LINKS.gitHub}
               target="_blank"
               title="GitHub"
             >
-              <GitHubLogoBold class="size-6" />
+              <div class="ph-bold ph-github-logo text-2xl"></div>
             </a>
           </li>
           <li>
             <a
               aria-label="LinkedIn"
+              class="hover:no-underline"
               href={SOCIAL_MEDIAS_LINKS.linkedIn}
               target="_blank"
               title="LinkedIn"
             >
-              <LinkedInLogoBold class="size-6" />
+              <div class="ph-bold ph-linkedin-logo text-2xl"></div>
             </a>
           </li>
         </ul>

@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import PaperPlaneTiltBold from "phosphor-astro/PaperPlaneTiltBold.astro";
 import Button from "./Button.astro";
 import { SOCIAL_MEDIAS_LINKS } from "../constants/socialMediasLinks";
 import { generalInformation } from "../data/generalInformation";
@@ -27,7 +26,7 @@ import { generalInformation } from "../data/generalInformation";
     {generalInformation.description}
   </p>
   <Button
-    Icon={PaperPlaneTiltBold}
+    icon="paper-plane-tilt"
     href={SOCIAL_MEDIAS_LINKS.linkedIn}
     id="hero-section-contact-button"
     target="_blank"

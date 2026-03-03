@@ -10,8 +10,8 @@
     "declutter": "npx knip"
   },
   "dependencies": {
-    "dayjs": "^1.11.19",
-    "phosphor-astro": "^2.1.0"
+    "@phosphor-icons/web": "^2.1.2",
+    "dayjs": "^1.11.19"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.1",
