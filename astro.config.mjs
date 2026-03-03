@@ -20,5 +20,13 @@ export default defineConfig({
       },
     },
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: [
+        "phosphor-astro/GitHubLogoBold.astro",
+        "phosphor-astro/LinkedInLogoBold.astro",
+        "phosphor-astro/LinkBold.astro",
+        "phosphor-astro/PaperPlaneTiltBold.astro",
+      ],
+    },
   },
 });
