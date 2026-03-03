@@ -9,6 +9,11 @@ export default defineConfig({
     open: true,
   },
   vite: {
+    build: {
+      rollupOptions: {
+        external: ["phosphor-astro/GitHubLogoBold.astro"],
+      },
+    },
     plugins: [tailwindcss()],
   },
 });
