@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "declutter": "npx knip"
   },
   "dependencies": {
     "dayjs": "^1.11.19",
@@ -16,9 +17,11 @@
     "@tailwindcss/vite": "^4.2.1",
     "@types/umami-browser": "^2.18.0",
     "astro": "^5.18.0",
+    "knip": "^5.85.0",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
   }
 }
