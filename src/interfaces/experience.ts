@@ -6,5 +6,6 @@ export interface Experience {
   };
   description: string;
   name: string;
+  location: string;
   period: string;
 }

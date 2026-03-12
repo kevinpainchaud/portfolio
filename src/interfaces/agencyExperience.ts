@@ -3,6 +3,7 @@ export interface AgencyExperience {
     name: string;
     websiteUrl: string;
   };
+  location: string;
   name: string;
   period: string;
 }

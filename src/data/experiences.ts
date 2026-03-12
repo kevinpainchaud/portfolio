@@ -11,6 +11,7 @@ export const experiences: Experience[] = [
     },
     description:
       "En 2022, j'ai rejoint l'aventure Leeto en tant que Lead Front-End Developer. Mon rôle consiste à construire les nouvelles fonctionnalités et participer aux choix architecturaux et technologiques du produit.",
+    location: "Paris (full remote)",
     name: "Lead Front-End Developer",
     period: `Depuis ${dayjs(dates.currentExperienceStartDate).year()} • ${dayjs().from(dayjs(dates.currentExperienceStartDate), true)}`,
   },
@@ -20,6 +21,7 @@ export const experiences: Experience[] = [
       logoSrc: "/experiences/hellowork-logo.svg",
       websiteUrl: "https://hellowork.com",
     },
+    location: "Rennes",
     description:
       "Entre 2017 et 2022, j'ai eu l'occasion de travailler au sein de l'équipe technique de MaFormation.fr, dans une organisation agile. Mon rôle principal consistait à faire évoluer le produit dans sa composante front-end et d'en assurer sa maintenance. J'ai également pu assurer le rôle de Scrum Master durant ma dernière année.",
     name: "Front-End Developer",

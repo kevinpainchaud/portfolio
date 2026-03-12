@@ -5,13 +5,14 @@ import LinkItem from "./LinkItem.astro";
 interface Props {
   logoSrc: string;
   description: string;
+  location?: string;
   period: string;
   subtitle: string;
   title: string;
   websiteUrl: string;
 }
 
-const { description, logoSrc, period, subtitle, title, websiteUrl } =
+const { description, logoSrc, location, period, subtitle, title, websiteUrl } =
   Astro.props;
 ---
 
@@ -32,6 +33,13 @@ const { description, logoSrc, period, subtitle, title, websiteUrl } =
       <div>
         <div class="font-medium">{title}</div>
         <div>{subtitle}</div>
+        {
+          location && (
+            <div class="text-sm text-olive-600 dark:text-olive-400">
+              {location}
+            </div>
+          )
+        }
       </div>
     </div>
     <div class="text-sm text-olive-600 dark:text-olive-400">
