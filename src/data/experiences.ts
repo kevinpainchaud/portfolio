@@ -10,7 +10,7 @@ export const experiences: Experience[] = [
       websiteUrl: "https://leeto.co",
     },
     description:
-      "En 2022, j'ai rejoint l'aventure Leeto en tant que Lead Front-End Developer. Mon rôle consiste à construire les nouvelles fonctionnalités et participer aux choix architecturaux et technologiques du produit. En 2022, j'ai rejoint l'aventure Leeto en tant que Lead Front-End Developer. Mon rôle consiste à construire les nouvelles fonctionnalités et participer aux choix architecturaux et technologiques du produit.",
+      "En 2022, j'ai rejoint l'aventure Leeto en tant que Lead Front-End Developer. Mon rôle consiste à construire les nouvelles fonctionnalités et participer aux choix architecturaux et technologiques du produit.",
     name: "Lead Front-End Developer",
     period: `Depuis ${dayjs(dates.currentExperienceStartDate).year()} • ${dayjs().from(dayjs(dates.currentExperienceStartDate), true)}`,
   },
